@@ -1,0 +1,4 @@
+demucs==4.0.1
+fastapi==0.110.0
+Requests==2.31.0
+uvicorn==0.29.0
