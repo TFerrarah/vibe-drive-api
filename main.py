@@ -46,8 +46,12 @@ async def get_song(song_id: str):
     song = spotify_api.fetch_song(song_id)
     # Separate song
     song_separated = songBuilder.build_song(song)
-    # return file
-    return FileResponse(song_separated)
+
+    if isinstance(song_separated, float):
+        return {"eta_seconds": song_separated}
+    else:
+        # return file
+        return FileResponse(song_separated)
 
 
 import uvicorn

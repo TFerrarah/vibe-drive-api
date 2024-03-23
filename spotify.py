@@ -85,7 +85,8 @@ class SpotifyAPI:
                     "id": song["track"]["id"],
                     "image": song["track"]["album"]["images"][0]["url"],
                     "name": song["track"]["name"],
-                    "artists": artists
+                    "artists": artists,
+                    "duration_ms": song["duration_ms"]
                 })
             offset += 100
         
@@ -111,7 +112,8 @@ class SpotifyAPI:
             "id": response_data["id"],
             "image": response_data["album"]["images"][0]["url"],
             "name": response_data["name"],
-            "artists": artists
+            "artists": artists,
+            "duration_ms": response_data["duration_ms"],
         }
         return song
 
