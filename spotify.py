@@ -165,7 +165,13 @@ class SpotifyAPI:
             # Make folder for song
             # folder_title = f'{audio_folder}/{song["name"]} - {song["artists"]}'.replace(" ", "_")
             # Download the song
-            yt_dlp_cmd = f'yt-dlp --default-search "https://music.youtube.com/search?q=" "{song["name"]} {song["artists"]}" --playlist-items 1 --extract-audio --output "Mix.%(ext)s"'
+            print("Search query: " + f'{song["name"]} {song["artists"]}')
+
+            ####################
+            # yt-dlp way
+            #TODO: 
+            ####################
+            yt_dlp_cmd = f'yt-dlp --default-search "https://youtube.com/search?q=" "{song["name"]} by {song["artists"]}" --playlist-items 1 --extract-audio --output "Mix.%(ext)s"'
             song["yt_dlp_cmd"] = yt_dlp_cmd
 
         return songs

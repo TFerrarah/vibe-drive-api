@@ -14,6 +14,7 @@ import shutil
 import time
 
 def new_song(song):
+    #? Timer START
     curr_time = time.time()
     song_id = song["id"]
     yt_dlp_cmd = song["yt_dlp_cmd"]
@@ -34,6 +35,7 @@ def new_song(song):
     # Delete the TMP folder with its contents
     shutil.rmtree(f"./TMP_{song_id}")
     # Print message
+    #? Timer STOP
     print(f"Song with ID {song_id} has been built (Processing time: {time.time() - curr_time} seconds)")
 
 def build_song(song):
@@ -46,7 +48,7 @@ def build_song(song):
         # Estimated time to separate a song is SONG_LENGTH + 20%
         # Get song length
         song_length = song["duration_ms"]
-        eta_seconds = (song_length + (song_length * 0.3)) / 1000
+        eta_seconds = (song_length) / 1000
         return eta_seconds
     else:
         print(f"Song with ID {song_id} already exists")
