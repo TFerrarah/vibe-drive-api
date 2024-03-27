@@ -47,7 +47,7 @@ async def get_song(song_id: str):
     # Separate song
     song_separated = songBuilder.build_song(song)
 
-    if isinstance(song_separated, float):
+    if isinstance(song_separated, float): # If return value is float, that is the ETA
         return {"eta_seconds": song_separated}
     else:
         # return file

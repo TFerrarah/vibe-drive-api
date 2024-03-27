@@ -27,7 +27,7 @@ def new_song(song):
     #! GPU Intensive workload ahead
     # Separate audio
     MODEL = "htdemucs"
-    demucs.separate.main(shlex.split(f'-n {MODEL} -j 2 "./Mix.opus"'))
+    demucs.separate.main(shlex.split(f'-n {MODEL} -d cuda -j 2 "./Mix.opus"'))
     # Compress the separated audio using shutil and move it to the Songs folder
     shutil.make_archive(f"../Songs/{song_id}", 'zip', f"./separated/{MODEL}/Mix")
     # Move back to the "Root" directory
